@@ -469,3 +469,13 @@ footer {
     font-size: 56px;
   }
 }
+
+/* ブラウザの幅が400ピクセル以下の場合 */
+@media (max-width: 400px) {
+  .title h1 {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    font-size: 56px;
+  }
+}
