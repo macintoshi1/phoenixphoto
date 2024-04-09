@@ -21,7 +21,7 @@ header {
   position: relative;
   text-align: center;
   height: 110vh;
-  background-image: url(../img/IMG_4657.png), linear-gradient(rgba(51, 51, 51, 0.9), rgba(51, 51, 51, 0.5)); /* 背景画像とグレーの半透明レイヤー */
+  background-image: url(../img/IMG_4657.jpg), linear-gradient(rgba(51, 51, 51, 0.9), rgba(51, 51, 51, 0.5)); /* 背景画像とグレーの半透明レイヤー */
   background-size: cover;
   background-blend-mode: overlay; /* レイヤーを重ねるためのブレンドモード */
   color: #fff;
@@ -167,17 +167,6 @@ nav ul {
   color: #929292;
 }
 
-/* test
-.test {
-  cursor: pointer;
-}
-
-.test:hover {
-  background-color: #000;
-  color: #fff;
-} */
-
-
 .title h1 {
   position: absolute;
   top: 50%;
@@ -268,55 +257,6 @@ h3 {
   position: relative;
   box-shadow: 16px 16px 32px 16px rgba(0, 0, 0, 0.4);
 }
-
-/* #prev_food,
-#next_food,
-#prev_architecture,
-#next_architecture,
-#prev_city,
-#next_city,
-#prev_fashion,
-#next_fashion,
-#prev_space,
-#next_space,
-#prev_atmosphere,
-#next_atmosphere,
-#prev_nature,
-#next_nature,
-#prev_gadgets,
-#next_gadgets {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  border: none;
-  background: rgba(0, 0, 0, .4);
-  color: #fff;
-  font-size: 36px;
-  padding: 0 8px 4px;
-  cursor: pointer;
-} */
-
-/* #prev_food:hover,
-#next_food:hover,
-#prev_architecture:hover,
-#next_architecture:hover,
-#prev_city:hover,
-#next_city:hover,
-#prev_fashion:hover,
-#next_fashion:hover,
-#prev_space:hover,
-#next_space:hover,
-#prev_atmosphere:hover,
-#next_atmosphere:hover,
-#prev_nature:hover,
-#next_nature:hover,
-#prev_gadgets:hover,
-#next_gadgets:hover, {
-  background-color: #555;
-  color: #ddd;
-  opacity: .8;
-  cursor: pointer;
-} */
 
 .prev,
 .next {
@@ -430,8 +370,6 @@ h3 {
   margin-top: 20px;
 }
 
-
-
 footer {
   padding: 32px 0;
   border-top: #ccc 2px solid;
@@ -477,5 +415,6 @@ footer {
     overflow: visible;
     text-overflow: clip;
     font-size: 56px;
+    overflow-wrap: break-word;
   }
 }
