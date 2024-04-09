@@ -417,4 +417,9 @@ footer {
     font-size: 56px;
     overflow-wrap: break-word;
   }
+
+  .test::after{
+    content:"\A";
+    white-space:pre;
+   }
 }
