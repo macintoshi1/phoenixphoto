@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const closeButton = document.getElementById('close');
   const titleDiv = document.querySelector('.title');
   
+
+  
   // スクロールによるフェードアウト効果
   window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
@@ -47,10 +49,54 @@ document.addEventListener('DOMContentLoaded', function() {
     const totalSlides = slides.length;
     const nextButtons = carousel.querySelectorAll('.next');
     const prevButtons = carousel.querySelectorAll('.prev');
+    const dots = [];
+    const dotsContainer = carousel.parentElement.querySelector('.carouselButtons'); // 修正：親要素から適切な子要素を参照
+    // let currentIndex = 0;
+
+    if (!dotsContainer) {
+      console.error("Dots container not found for carousel: ", carousel);
+      return; // ここで処理を中断する
+    }
 
   function moveSlides() {
     carousel.querySelector('ul').style.transform = `translateX(-${slideIndex * 100}%)`;
   }
+
+  function setupDots() {
+    console.log("Setting up dots for carousel: ", carousel);
+    for (let i = 0; i < slides.length; i++) {
+      const button = document.createElement('button');
+      button.addEventListener('click', () => {
+        // currentIndex = i;
+        slideIndex = i;
+        // dots.forEach(dot => {
+        //   dot.classList.remove('current');
+        // });
+        dots.forEach(dot => dot.classList.remove('current'));
+        dots[slideIndex].classList.add('current');
+        // dots[currentIndex].classList.add('current');
+
+        updateButtons();
+        moveSlides();
+      });
+      dots.push(button);
+      // document.querySelector('.carouselButtons').appendChild(button);
+
+      // デバッグ: dotsContainerの状態を確認
+      // if (!dotsContainer) {
+      //   console.error("Dots container not found for carousel: ", carousel);
+      // } else {
+        console.log("Appending button to dots container: ", dotsContainer);
+        dotsContainer.appendChild(button);
+      }
+
+    if (dots.length > 0) {
+      dots[0].classList.add('current');   
+    }
+  }
+
+  setupDots();
+  updateButtons();
 
   nextButtons.forEach((nextButton) => {
     nextButton.addEventListener('click', () => {
@@ -74,7 +120,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // ボタンの状態を更新する関数
   function updateButtons() {
-    // ここではquerySelectorALlから得られるコレクションをforEachで回して、
+    // ここではquerySelectorAllから得られるコレクションをforEachで回して、
     // 個別にスタイルを適用しています。
     prevButtons.forEach(button => {
       button.style.visibility = slideIndex > 0 ? 'visible' : 'hidden';
@@ -82,11 +128,15 @@ document.addEventListener('DOMContentLoaded', function() {
     nextButtons.forEach(button => {
       button.style.visibility = slideIndex < totalSlides - 1 ? 'visible' : 'hidden';
     });
+
+    // ドットの状態を更新
+    dots.forEach((dot, index) => {
+      dot.classList.toggle('current', index === slideIndex);
+    });
   }
 
   // 
 
-  updateButtons();
 }
 });
 
